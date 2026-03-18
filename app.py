@@ -164,8 +164,7 @@ def main():
             else:
                 st.warning(f"⚠️ **{flagged} inactive products still have inventory.**")
 
-                display_cols = ["Shop", "SKU", "Item", "Category", "Brand", "Vendor", "Inventory Available"]
-                display_cols.extend(active_inv_cols)
+                display_cols = ["Shop", "Category", "Item", "Product ID", "Inventory Available"]
                 available = [c for c in display_cols if c in inactive.columns]
 
                 result = inactive[available].sort_values(
@@ -205,8 +204,7 @@ def main():
             else:
                 st.warning(f"⚠️ **{flagged_del} deleted products still have inventory.**")
 
-                display_cols = ["Shop Name", "SKU", "Item", "Category", "Brand", "Vendor",
-                               "Available Inventory", "Product ID", "Modified"]
+                display_cols = ["Shop Name", "Category", "Item", "Product ID", "Available Inventory"]
                 available = [c for c in display_cols if c in deleted_inv.columns]
 
                 result = deleted_inv[available].sort_values(
